@@ -74,6 +74,7 @@ p{
 .category:focus,
 .category:hover{
     filter: opacity(1);
+    cursor: pointer;
 }
 .category img {
     width: 24px;

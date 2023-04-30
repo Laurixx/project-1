@@ -24,7 +24,7 @@ export const categories = [
         icon: "icons/porcelain.png",
     },
     {
-        name: "Preserved Food",
+        name: "Preserved Foods",
         icon: "icons/jam-jar.png",
     },
 ]
