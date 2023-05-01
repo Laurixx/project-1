@@ -1,3 +1,31 @@
+ 
+ 
+ TEMPLATE CATEGORY
+ 
+             <!-- <div class="category" id="">
+                <img src="" alt="">
+                <p></p>
+            </div> -->
+ 
+ 
+ TEMPLATE PRODUCTS 
+
+             <!-- <div class="product">
+                <img src="" alt="">
+                <div class="product-footer">
+                    <div class="name-location">
+                        <h3>title</h3>
+                        <p>location</p>
+                    </div>
+                    <div class="delivery-price">
+                        <p id="deliveryNote">delivery</p>
+                        <p class ="price">price</p>
+                    </div>
+                </div>
+            </div> -->
+
+ TENPLATE EACH PRODUCT
+
  <section>
             <div class="content">
                 <div class="left-side"><img src="" alt=""></div>

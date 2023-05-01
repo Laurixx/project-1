@@ -85,10 +85,80 @@ for (let product of filteredProducts){
 console.log(filteredProducts);
 
 })
-
+let standardQuantity = 1
+let standardDeliveryFee = 3.99 // maybe in the future when i learn some more i may make this into a distance check and add idk few cents a mile or something like that plus the delivery fee 
 productsSection.addEventListener('click', function(e){
-    let singleProduct = (e.target.parentElement.id)
-    console.log(singleProduct);
-// mainHtml.innerHTML = '
-// '
+    if(e.target.parentElement.classList.contains('product')){
+    const productID = (e.target.parentElement.id)
+    const selectedProduct = products.find(function(product){ // NEW METHOD 'Google' .find (this finds a product in the array where
+                                                            // the title is the same as the id of the div clicked COOOL)
+        return product.title === productID})
+if(selectedProduct){
+ mainHtml.innerHTML =`
+    <section>
+    <div class="content">
+        <div class="left-side"><img src="pictures/${selectedProduct.thumbnail}" alt=""></div>
+        <div class="right-side">
+            <div class="title">
+                <h1>${selectedProduct.title}</h1>
+                <p>${selectedProduct.location}</p>
+            </div>
+            <div class="card">
+                <div class="first-div">
+                    <h3 class="pRice">${selectedProduct.price}</h3>
+                    <p class="rating"></p>
+                    <a href="#" class="reviews-number">${selectedProduct.reviews.length}Reviews</a>
+                </div>
+                <div class="quantity-stock">
+                    <div class="box" id="quantity">
+                    
+                            <select  id="quantyty">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                            </select>
+                    </div>
+                    <div class="box" >
+                        <p id="stock">${selectedProduct.stock_count}</p>
+                    </div>
+                </div>
+                <div class="buttons">
+                    <input type="radio" name="logistics" id="delivery">
+                    <label for="delivery">Delivery</label>
+
+                    <input type="radio" name="logistics" id="colection">
+                    <label for="colection">Colection</label>
+
+                </div>
+                <div class="invoice">
+                    <div class="invoice-items">
+                        <div class="invoice-item">
+                            <p class="quantity-price">${selectedProduct.price}X${standardQuantity}</p>
+                            <p class="price">${selectedProduct.price * standardQuantity}</p>
+                        </div>
+                        <div class="invoice-item">
+                            <p>Delivery Fee</p>
+                            <p class="price">${standardDeliveryFee}</p>
+                        </div>
+                        <div class="invoice-item">
+                            <p>Service Fee</p>
+                            <p class="price">${(selectedProduct.price * standardQuantity)/100}</p>
+                        </div>
+                    </div>
+                    <div>
+                        <p>Total</p>
+                        <p class="price">${((selectedProduct.price * standardQuantity) + standardDeliveryFee + (selectedProduct.price * standardQuantity)/100)}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </section>`
+        }
+    }
 })
