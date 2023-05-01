@@ -1,0 +1,43 @@
+ <section>
+            <div class="content">
+                <div class="left-side"><img src="" alt=""></div>
+                <div class="right-side">
+                    <div class="title">
+                        <h1></h1>
+                        <p></p>
+                    </div>
+                    <div class="card">
+                        <div class="first-div">
+                            <h3 class="pRice"></h3>
+                            <p class="rating"></p>
+                            <a href="#" class="reviews-number">Reviews</a>
+                        </div>
+                        <div class="quantity-stock">
+                            <div class="box" id="quantity">
+                                <input type="number" name="quantity">
+                                <label for="quantity"></label>
+                                <a href="#" id="add-quantity">+</a>
+                                <a href="#" id="cut-quantity">-</a>
+                            </div>
+                            <div class="box" >
+                                <p id="stock"></p>
+                            </div>
+                        </div>
+                        <div class="buttons">
+                            <input type="radio" name="logistics" id="delivery">
+                            <label for="delivery">Delivery</label>
+
+                            <input type="radio" name="logistics" id="colection">
+                            <label for="colection">Colection</label>
+
+                        </div>
+                        <div class="invoice">
+                            <p class="price-quantity"></p>
+                            <p class="delivery-fee"></p>
+                            <p class="service-fee"></p>
+                            <p class="total"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>

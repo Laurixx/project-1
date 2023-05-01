@@ -1,8 +1,10 @@
 import {products} from "./products.js"
 import {categories} from "./categories.js"
+
 const productsSection = document.getElementById('products')
 const categoriesSection = document.getElementById('categories')
 const logoDiv = document.querySelector(".logo")
+const mainHtml= document.getElementById('main')
 
 // THIS RENDERS THE CATEGORIES 
 function renderCategories (cath){
@@ -14,7 +16,7 @@ function renderCategories (cath){
         </div>
         `
     }
-    renderProducts(products) // CALLS RENDER PRUCTS 
+    renderProducts(products) // CALLS RENDER PRODUCTS 
 }
 // RENDERS ALL THE PRODUCTS ON THE PAGE 
 function renderProducts(prod){
@@ -82,4 +84,11 @@ for (let product of filteredProducts){
     renderDelivery(filteredProducts) // RENDER DELIVERY AGAIN '_' ? 
 console.log(filteredProducts);
 
+})
+
+productsSection.addEventListener('click', function(e){
+    let singleProduct = (e.target.parentElement.id)
+    console.log(singleProduct);
+// mainHtml.innerHTML = '
+// '
 })
