@@ -31,7 +31,7 @@ function renderProducts(prod){
         </div>
         <div class="delivery-price">
         <p class = "deliveryNote"></p>
-        <p class ="price">${product.price} £</p>
+        <p class ="price">${(product.price).toFixed(2)} £</p>
         </div>
         </div>
         </div>`
@@ -101,22 +101,28 @@ if(selectedProduct){
  mainHtml.innerHTML =`
     <section>
     <div class="content">
-        <div class="left-side"><img src="pictures/${selectedProduct.thumbnail}" alt=""></div>
-        <div class="right-side">
-            <div class="title">
-                <h1>${selectedProduct.title}</h1>
-                <p>${selectedProduct.location}</p>
+        <div class="left-side">
+            <img src="pictures/${selectedProduct.thumbnail}" alt="">
+            <div class="infom">
+                <div class="title">
+                    <h1>${selectedProduct.title}</h1>
+                    <p>${selectedProduct.location}</p>
+                </div>
+                <div>
+                    <h3 class="pRice">${(selectedProduct.price).toFixed(2)} £</h3>
+                </div>
             </div>
+
+        </div>
+        <div class="right-side">
             <div class="card">
                 <div class="first-div">
-                    <h3 class="pRice">${selectedProduct.price}</h3>
-                    <p class="rating"></p>
                     <a href="#" class="reviews-number">${selectedProduct.reviews.length}Reviews</a>
                 </div>
-                <div class="quantity-stock">
+                <div class="quantity_stock">
                     <div class="box" id="quantity-stock">
                     
-                            <select  id="quantity">
+                            <select  id="quantity" class="quantity">
                                 <option value="1" selected="selected">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -127,8 +133,9 @@ if(selectedProduct){
                                 <option value="8">8</option>
                             </select>
                     </div>
+                    <p>of</p>
                     <div class="box" >
-                        <p id="stock">${selectedProduct.stock_count}</p>
+                        <p id="stock" class="in-stock" >${selectedProduct.stock_count} in Stock</p>
                     </div>
                 </div>
                 <div class="buttons">
@@ -174,4 +181,5 @@ if(selectedProduct){
     priceQuantitySum.textContent = `${selectedProduct.price * selectedQuantity.valueS}`
 
     })
+
 })
