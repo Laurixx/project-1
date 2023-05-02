@@ -319,7 +319,7 @@
         stock_count: 30,
         reviews: [
           {
-            rating: 5,
+            rating: 4,
             review: "Wonderful fragrance and taste!",
             author: "Ivy"
           },
@@ -337,7 +337,7 @@
         stock_count: 8,
         reviews: [
           {
-            rating: 5,
+            rating: 1,
             review: "Beautiful vase and excellent craftsmanship.",
             author: "Mike"
           },
@@ -370,7 +370,7 @@
             author: "Patty"
           },
           {
-            rating: 4,
+            rating: 3,
             review: "Good taste, but could use less salt.",
             author: "Quentin"
           },

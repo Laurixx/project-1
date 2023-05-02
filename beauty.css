@@ -172,3 +172,25 @@ header input:hover{
         border-bottom: none;
     }
 }
+
+.content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10%;
+    padding:3% ;
+}
+.left-side img{
+    width: 100%;
+    border-radius: 5%;
+
+}
+.right-side {
+    padding: 20px;
+    background: #d7d7d7;
+    border-radius: 15%;
+}
+.invoice-item{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}

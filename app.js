@@ -85,14 +85,18 @@ for (let product of filteredProducts){
 console.log(filteredProducts);
 
 })
-let standardQuantity = 1
-let standardDeliveryFee = 3.99 // maybe in the future when i learn some more i may make this into a distance check and add idk few cents a mile or something like that plus the delivery fee 
+let standardQuantity = 1 
+let standardDeliveryFee = 3.99 // maybe in the future when i learn some more
+                                // i may make this into a distance check and add idk few cents a mile or something like that plus the delivery fee 
+
+
 productsSection.addEventListener('click', function(e){
     if(e.target.parentElement.classList.contains('product')){
     const productID = (e.target.parentElement.id)
     const selectedProduct = products.find(function(product){ // NEW METHOD 'Google' .find (this finds a product in the array where
                                                             // the title is the same as the id of the div clicked COOOL)
         return product.title === productID})
+        
 if(selectedProduct){
  mainHtml.innerHTML =`
     <section>
@@ -110,10 +114,10 @@ if(selectedProduct){
                     <a href="#" class="reviews-number">${selectedProduct.reviews.length}Reviews</a>
                 </div>
                 <div class="quantity-stock">
-                    <div class="box" id="quantity">
+                    <div class="box" id="quantity-stock">
                     
-                            <select  id="quantyty">
-                                <option value="1">1</option>
+                            <select  id="quantity">
+                                <option value="1" selected="selected">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
                                 <option value="4">4</option>
@@ -138,21 +142,21 @@ if(selectedProduct){
                 <div class="invoice">
                     <div class="invoice-items">
                         <div class="invoice-item">
-                            <p class="quantity-price">${selectedProduct.price}X${standardQuantity}</p>
-                            <p class="price">${selectedProduct.price * standardQuantity}</p>
+                            <p id="quantity-price">${(selectedProduct.price).toFixed(2)}X${standardQuantity}</p>
+                            <p class="price" id="price/quantity">${(selectedProduct.price * standardQuantity).toFixed(2)} £</p>
                         </div>
                         <div class="invoice-item">
                             <p>Delivery Fee</p>
-                            <p class="price">${standardDeliveryFee}</p>
+                            <p class="price">${(standardDeliveryFee).toFixed(2)} £</p>
                         </div>
                         <div class="invoice-item">
                             <p>Service Fee</p>
-                            <p class="price">${(selectedProduct.price * standardQuantity)/100}</p>
+                            <p class="price">${((selectedProduct.price * standardQuantity)/100).toFixed(2)} £</p>
                         </div>
                     </div>
-                    <div>
+                    <div class="invoice-item">
                         <p>Total</p>
-                        <p class="price">${((selectedProduct.price * standardQuantity) + standardDeliveryFee + (selectedProduct.price * standardQuantity)/100)}</p>
+                        <p class="price">${((selectedProduct.price * standardQuantity) + standardDeliveryFee + (selectedProduct.price * standardQuantity)/100).toFixed(2)} £</p>
                     </div>
                 </div>
             </div>
@@ -161,4 +165,13 @@ if(selectedProduct){
     </section>`
         }
     }
+
+    const selectedQuantity = document.getElementById("quantity")
+    selectedQuantity.addEventListener('change', function(){
+    const quantitiPriceText = document.getElementById('quantity-price')
+    const priceQuantitySum = document.getElementById('price/quantity')
+    quantitiPriceText.textContent= `${selectedProduct.price}X${selectedQuantity.value}`
+    priceQuantitySum.textContent = `${selectedProduct.price * selectedQuantity.valueS}`
+
+    })
 })
